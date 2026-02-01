@@ -81,8 +81,15 @@ class ConfigManager:
     def save_config(self):
         """保存配置"""
         try:
+            # 排除敏感信息，不回写到配置文件中
+            config_to_save = self.config.copy()
+            sensitive_keys = ["dingtalk_webhook", "dingtalk_secret"]
+            for key in sensitive_keys:
+                if key in config_to_save:
+                    del config_to_save[key]
+            
             with open(CONFIG_FILE, 'w', encoding='utf-8') as f:
-                json.dump(self.config, f, indent=4, ensure_ascii=False)
+                json.dump(config_to_save, f, indent=4, ensure_ascii=False)
         except Exception as e:
             print(f"保存配置文件失败: {e}")
             

@@ -1,9 +1,9 @@
 {
     "premium_threshold": 10.0,
     "discount_threshold": 30.0,
-    "dingtalk_webhook": "https://oapi.dingtalk.com/robot/send?access_token=db4099a9d46b1a0b5ef65641876469acf9afbac39566581bfec232aacc9d4d72",
-    "dingtalk_secret": "SEC267aa89ca7db05980adc94611dd2d641f1f28b3d6e847614a06d83a48dfb8ece",
-    "last_alert_date": "2026-02-01",
+    "dingtalk_webhook": "",
+    "dingtalk_secret": "",
+    "last_alert_date": "2026-01-02",
     "alerted_funds": [
         "168203",
         "164509",
