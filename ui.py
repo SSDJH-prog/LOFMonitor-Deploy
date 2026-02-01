@@ -369,9 +369,9 @@ class LOFMonitorApp:
             self.fund_data = [] # Reset data list
             
             # 定义进度回调
-            def progress_callback(current, total, name):
-                self.root.after(0, lambda c=current, t=total, n=name: 
-                               self.status_label.config(text=f"正在获取场外净值 {n} ({c}/{t})..."))
+            def progress_callback(current, total, name, fund_data):
+                self.root.after(0, lambda c=current, t=total, n=name, fd=fund_data: 
+                               self.status_label.config(text=f"正在获取场外净值 {n} ({c}/{t}) 场内价格：{fd['market_price']} 场外净值：{fd['nav_price']}"))
             
             # 定义数据回调（实时处理单个基金数据）
             def on_fund_data_received(fund):

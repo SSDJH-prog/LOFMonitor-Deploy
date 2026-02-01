@@ -133,10 +133,6 @@ def get_all_fund_data(progress_callback=None, data_callback=None):
         name = row['name']
         market_price = row['market_price']
         
-        # 回调进度
-        if progress_callback:
-            progress_callback(idx + 1, total, name)
-        
         # 获取场外净值
         nav_price, nav_date = get_nav_price(code)
         
@@ -153,6 +149,10 @@ def get_all_fund_data(progress_callback=None, data_callback=None):
             'nav_date': nav_date,         # 新增: 净值日期
             'fund_state': fund_state      # 新增: 基金状态
         }
+        
+        # 回调进度
+        if progress_callback:
+            progress_callback(idx + 1, total, name, fund_data)
         
         # 实时回调每个基金数据
         if data_callback:

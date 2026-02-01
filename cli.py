@@ -191,7 +191,7 @@ class LOFMonitorCLI:
 
         # 获取数据并传入回调
         get_all_fund_data(
-            progress_callback=lambda c, t, n: print(f"\r正在获取数据: {c}/{t} ({n[:10]})", end="", flush=True),
+            progress_callback=lambda c, t, n, fd: print(f"\r正在获取数据: {c}/{t} ({n[:10]} 场内价格：{fd['market_price']} 场外净值：{fd['nav_price']})", end="", flush=True),
             data_callback=on_fund_received
         )
         
